@@ -1,0 +1,15 @@
+ld.design               Functions for design of experiments to detect
+                        linkage disequilibrium
+ld.sim                  Functions to simulate populations with a
+                        bi-allelic marker and QTL in linkage
+                        disequilibrium and test for association.
+luo.ld.populations      Luo's Linkage disequilibrium example
+                        populations
+luo.ld.power            Classical deterministic power calculation for
+                        association studies to detect linkage
+                        disequilibrium
+oneway.bf.alpha         Correspondence between significance levels and
+                        Bayes factors for effects of marker genotype
+                        classes.
+SS.oneway.bf            Bayes factors for one-way analysis of variance
+                        models.
