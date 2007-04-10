@@ -59,7 +59,7 @@ corresponding to a given Bayes factor.
 data(luo.ld.populations)
 Bs <- numeric(nrow(luo.ld.populations))
 n.Bf20s <- numeric(nrow(luo.ld.populations))
-ns <- c(seq(200,400,by=25),,450,seq(500,4000,by=100))
+ns <- c(seq(200,400,by=25),450,seq(500,4000,by=100))
 powers <- numeric(length(ns))
 alphas <- numeric(length(ns))
 P.Bf20s <- numeric(length(ns))

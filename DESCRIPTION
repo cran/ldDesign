@@ -1,8 +1,8 @@
 Package: ldDesign
-Version: 1.0-0
+Version: 1.1-0
 Title: Design of experiments for detection of linkage disequilibrium
-Author: Rod Ball <rod.ball@forestresearch.co.nz>
-Maintainer: Rod Ball <rod.ball@forestresearch.co.nz>
+Author: Rod Ball <rod.ball@ensisjv.com>
+Maintainer: Rod Ball <rod.ball@ensisjv.com>
 Description: R package for design of experiments for association
   studies for detection of linkage disequilibrium. Uses an existing
   deterministic power calculation for detection of linkage
@@ -11,4 +11,5 @@ Description: R package for design of experiments for association
   designs with power to detect effects with a given Bayes factor.
 Depends: 
 License: GPL version 2 or newer
-URL: mailto:rod.ball@forestresearch.co.nz www.forestresearch.co.nz/
+URL: mailto:rod.ball@ensisjv.com www.scionresearch.com/
+Packaged: Tue Apr 10 10:08:41 2007; rod
