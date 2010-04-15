@@ -24,7 +24,7 @@ Functions to calculate the correspondence between significance levels alpha
   \item{Bf}{Bayes factor, used as threshold for detection} }
 
 \details{These functions implement the correspondence between the 
-  significance levels and Bayes factors used in Ball (2003) to design
+  significance levels and Bayes factors used in Ball (2005) to design
   experiments for detecting linkage disequilibrium with a given power 
   to achieve a given Bayes factor. The function \code{\link{SS.oneway.bf}} is used to calculate
   the Bayes factor corresponding to a given F statistic (Spiegelhalter
@@ -32,7 +32,6 @@ Functions to calculate the correspondence between significance levels alpha
   or calls to \code{pf} and interpolation for
   \code{oneway.bf.alpha.required}, to calculate the Bayes factor
   corresponding to a given alpha or alpha values for a given Bayes factor.
- }
 }
 \value{
 \code{oneway.bf.alpha} returns the Bayes factor
@@ -41,16 +40,21 @@ corresponding to a given significance level (alpha).
 corresponding to a given Bayes factor.
 }
 \references{ 
-  Ball, R.D. 2003
-  Experimental designs for reliable detection of linkage disequilibrium
-  in unstructured random population association studies.
+  Ball, R.D. 2005: Experimental designs for reliable detection of linkage 
+  disequilibrium in unstructured random population association studies.
+  Genetics 170: 859--873.
+
+  Ball, R.D. 2007:  Statistical analysis and experimental design.
+  Chapter 8, pp133--196 In: Association Mapping in Plants, N.C. Oraguzie,
+  E.H.A. Rikkerink, S.E. Gardiner, and H.N. DeSilva (Editors), Springer,
+  New York.
 
   Spiegelhalter, D. and A.F.M. Smith 1982
   Bayes factors for linear and log-linear models with vague prior
   information J. Royal Statist Soc. B 44: 377--387.
 }
-\author{Rod Ball \email{rod.ball@forestresearch.co.nz} 
-\url{www.forestresearch.co.nz}}
+\author{Rod Ball \email{rod.ball@scionresearch.com} 
+\url{www.scionresearch.com}}
 %\note{ ~~further notes~~ }
 % ~Make other sections like Warning with \section{Warning }{....} ~ 
 \seealso{\code{\link{SS.oneway.bf}},\code{\link{luo.ld.power}} }

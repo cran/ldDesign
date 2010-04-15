@@ -35,7 +35,7 @@ ld.power(n, p, q, D, h2, phi, Bf, missclass.rate = 0)
   \item{print.it}{If TRUE print results for sample sizes tried}
 }
 \details{
-These functions implement the method described in Ball (2003) for
+These functions implement the method described in Ball (2005) for
 obtaining the power of designs for detecting linkage disequilibrium with
 a given Bayes factor. The F values, (and hence significance levels) 
 corresponding to the given Bayes factors, sample sizes, and marker genotype 
@@ -55,20 +55,25 @@ Luo (1988) (R function \code{\link{luo.ld.power}}).
   For \code{ld.design} the sample size is returned.
 }
 \references{
-  Ball, R.D. 2003
-  Experimental designs for reliable detection of linkage disequilibrium
-  in unstructured random population association studies.
+  Ball, R.D. 2005: Experimental designs for reliable detection of linkage
+  disequilibrium in unstructured random population association studies.
+  Genetics 170: 859--873.
 
-  Luo, Z.W. 1988
+  Ball, R.D. 2007:  Statistical analysis and experimental design.
+  Chapter 8, pp133--196 In: Association Mapping in Plants, N.C. Oraguzie,
+  E.H.A. Rikkerink, S.E. Gardiner, and H.N. DeSilva (Editors), Springer,
+  New York.
+
+  Luo, Z.W. 1988:
   Detecting linkage disequilibrium between a polymorphic marker locus and 
   a trait locus in natural populations. Heredity 80, 198--208
 
-  Spiegelhalter, D. and A.F.M. Smith 1982
+  Spiegelhalter, D. and A.F.M. Smith 1982:
   Bayes factors for linear and log-linear models with vague prior
   information J. Royal Statist Soc. B 44: 377--387.
 }
-\author{Rod Ball \email{rod.ball@forestresearch.co.nz} 
-\url{www.forestresearch.co.nz}}
+\author{Rod Ball \email{rod.ball@scionresearch.com}
+\url{www.scionresearch.com}}
 %\note{ ~~further notes~~ }
 % ~Make other sections like Warning with \section{Warning }{....} ~ 
 \seealso{ \code{\link{luo.ld.power}}, \code{\link{ld.sim}}, \code{\link{oneway.bf.alpha}},

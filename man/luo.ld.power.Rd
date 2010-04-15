@@ -30,10 +30,10 @@ luo.ld.power(n, p, q, D, h2, phi, Vp = 100, alpha, print.it = TRUE,
 }
 \details{
 This is based on the 'fixed model' power calculation from Luo (1998,
-Heredity 80, 198--208), with corrections described in Ball (2003).  This
+Heredity 80, 198--208), with corrections described in Ball (2005).  This
 function, combined with \code{\link{oneway.bf.alpha}}, 
 \code{\link{oneway.bf.alpha.required}}, is used in
-Ball (2003) to design experiments for detecting linkage disequilibrium
+Ball (2005) to design experiments for detecting linkage disequilibrium
 with a given power to achieve a given Bayes factor.
 }
 \value{
@@ -42,16 +42,21 @@ with a given power to achieve a given Bayes factor.
 }
 
 \references{
-  Ball, R.D. 2003
-  Experimental designs for reliable detection of linkage disequilibrium
-  in unstructured random population association studies.
+  Ball, R.D. 2005: Experimental designs for reliable detection of linkage
+  disequilibrium in unstructured random population association studies.
+  Genetics 170: 859--873.
 
-  Luo, Z.W. 1988
+  Ball, R.D. 2007:  Statistical analysis and experimental design.
+  Chapter 8, pp133--196 In: Association Mapping in Plants, N.C. Oraguzie,
+  E.H.A. Rikkerink, S.E. Gardiner, and H.N. DeSilva (Editors), Springer,
+  New York.
+
+  Luo, Z.W. 1988:
   Detecting linkage disequilibrium between a polymorphic marker locus and 
   a trait locus in natural populations. Heredity 80, 198--208}
 
-\author{Rod Ball \email{rod.ball@forestresearch.co.nz} 
-\url{www.forestresearch.co.nz}}
+\author{Rod Ball \email{rod.ball@scionresearch.co.nz} 
+\url{www.scionresearch.com}}
 %\note{ ~~further notes~~ }
 % ~Make other sections like Warning with \section{Warning }{....} ~ 
 \seealso{\code{\link{ld.sim}},\code{\link{oneway.bf.alpha}},\code{\link{oneway.bf.alpha.required}},

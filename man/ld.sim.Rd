@@ -73,8 +73,8 @@ ld.sim1(n, p, q, D, d, h, sig2.error, missclass.rate = 0, nreps = 1,
 \references{Luo, Z.W. 1988 Detecting linkage disequilibrium between a
  polymorphic marker locus and a trait locus in natural populations.
  Heredity 80, 198--208.}
-\author{Rod Ball \email{rod.ball@forestresearch.co.nz} 
-\url{www.forestresearch.co.nz}}
+\author{Rod Ball \email{rod.ball@scionresearch.com} 
+\url{www.scionresearch.com}}
 %\note{ ~~further notes~~ }
 % ~Make other sections like Warning with \section{Warning }{....} ~ 
 \seealso{\code{\link{luo.ld.power}}}

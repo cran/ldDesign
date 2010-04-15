@@ -35,8 +35,8 @@ Spiegelhalter, D. and A.F.M. Smith 1982
   Bayes factors for linear and log-linear models with vague prior
   information J. Royal Statist Soc. B 44: 377--387.
 }
-\author{Rod Ball \email{rod.ball@forestresearch.co.nz} 
-\url{www.forestresearch.co.nz}}
+\author{Rod Ball \email{rod.ball@scionresearch.com} 
+\url{www.scionresearch.com}}
 %\note{ ~~further notes~~ }
 % ~Make other sections like Warning with \section{Warning }{....} ~ 
 \seealso{\code{\link{oneway.bf.alpha}},\code{\link{oneway.bf.alpha.required}}}
