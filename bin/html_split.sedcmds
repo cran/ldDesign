@@ -1,0 +1,5 @@
+s:</title>:</title>\n\n:
+s:</table[^>]*>:\n&:g
+s:<table:\n&:g
+s:<tr>:\n\t&:g
+

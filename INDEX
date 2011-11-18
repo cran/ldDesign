@@ -13,3 +13,23 @@ oneway.bf.alpha         Correspondence between significance levels and
                         classes.
 SS.oneway.bf            Bayes factors for one-way analysis of variance
                         models.
+cc.power                Function to determine power of case-control study to
+                        detect linkage disequilibrium with a functional locus
+                        with a given Bayes factor.
+cc.design               Function to determine sample size (number of cases and
+                        controls) necessary to detect a locus with a given Bayes
+                        factor with given power.
+calc.B.ABF              Function to calculate approximate Bayes factor from Z-statistic
+                        with sampling distribution N(0,1/n).
+calc.Zc.ABF             Function to calculate critical value, Zc for given Bayes factor,
+                        prior, and sample parameters.
+calc.Zalpha.ABF         Function to calculate Z value corresponding to significance
+                        level alpha.
+calc.Balpha.ABF		Function to calculate the approximate Bayes factor corresponding to a given
+			significance level alpha for given prior and sample parameters.
+calc.alphaB.ABF         Calculate the alpha value corresponding to a given Bayes factor
+                        for given prior and sample parameters.
+gpc.power               Function to get power of case control study to detect linkage
+                        disequilibrium with a functional locus with a given significance
+                        level. Uses the 'Genetic Power Calculator' website.
+
