@@ -399,10 +399,10 @@ power <- 1 - pnorm(sqrt(n)*(Zc - etax.opt/sigma1.opt))
       cat(paste("power (not optimised) = ", power.non.opt," power (optimised, c1 =",c1,") =",power,"\n"))
       cat("pij:\n")
       # p12 <- 1-p11-p13; p22 <- 1-p21-p23;
-      print(matrix(c(p11,p12,p13,p21,p22,p23),nr=2,byr=T))
+      print(matrix(c(p11,p12,p13,p21,p22,p23),nrow=2,byrow=T))
       cat("qij:\n")
       q12 <- 1-q11-q13; q22 <- 1-q21-q23;
-      print(matrix(c(q11,q12,q13,q21,q22,q23),nr=2,byr=T))
+      print(matrix(c(q11,q12,q13,q21,q22,q23),nrow=2,byrow=T))
       print(c(n=n,q0=q0,R=R,nu=nu,ax=ax,etax=etax,sigma1=sigma1,
               etaxoversigma1=etax.opt/sigma1.opt,
               etax.2x2=etax.2x2, sigma1.2x2=sigma1.2x2,
@@ -538,7 +538,7 @@ if(missing(baseline.risk)){
       stop("failed to find solution for q0, R")
     }else{
       if(verbose)
-        cat("found solution: q0 =", q0.soln,"R =", R,", squared error =", opt1$value,"\n")
+        cat("found solution: q0 =", q0,"R =", R,", squared error =", opt1$value,"\n")
     }
   }
 }else{
@@ -596,8 +596,8 @@ etax2 <- log(p12) - log(p13) - log(p22) + log(p23)
 etax <- c(etax1,etax2)
 #
 calc.V <- function(n1,n2){
-  1/n1*matrix(c( (p11+p12)/(p11*p12), -1/p12, -1/p12, (p12+p13)/(p12*p13)), nr=2,nc=2) +
-  1/n2*matrix(c( (p21+p22)/(p21*p22), -1/p22, -1/p22, (p22+p23)/(p22*p23)), nr=2,nc=2)
+  1/n1*matrix(c( (p11+p12)/(p11*p12), -1/p12, -1/p12, (p12+p13)/(p12*p13)), nrow=2,ncol=2) +
+  1/n2*matrix(c( (p21+p22)/(p21*p22), -1/p22, -1/p22, (p22+p23)/(p22*p23)), nrow=2,ncol=2)
 }
 #
 if(F){
@@ -781,8 +781,8 @@ detax2.dR1 <- (1/p12*dotprod(dp12dqs, dq1s.dR1) - 1/p13*dotprod(dp13dqs,dq1s.dR1
 detax2.dR2 <- (1/p12*dotprod(dp12dqs, dq1s.dR2) - 1/p13*dotprod(dp13dqs,dq1s.dR2) -
                  1/p22*dotprod(dp22dqs, dq2s.dR2) + 1/p23*dotprod(dp23dqs,dq2s.dR2))
 # detax = Nx N^{-1} deta
-Nx <- matrix(c(detax1.dR1,detax1.dR2,detax2.dR1,detax2.dR2),nc=2,byr=T)
-N <- matrix(c(deta1.dR1,deta1.dR2,deta2.dR1,deta2.dR2),nc=2,byr=T)
+Nx <- matrix(c(detax1.dR1,detax1.dR2,detax2.dR1,detax2.dR2),ncol=2,byrow=T)
+N <- matrix(c(deta1.dR1,deta1.dR2,deta2.dR1,deta2.dR2),ncol=2,byrow=T)
 detax.deta <- Nx %*% solve(N)
 
 detax.deta
@@ -1093,9 +1093,9 @@ p11.new <- q11*(D+(1-p)*(1-q))^2/(1-q)^2-q12*((D+(1-p)*(1-q))^2-(1-p)^2)/(1-(1-q
 p12.new <- q12*((D+(1-p)*(1-q))^2-(1-q)^2-(1-p)^2+1)/(1-(1-q)^2) -q11*((D+(1-p)*(1-q))^2-(1-q)^2)/(1-q)^2
 p21.new <- q21*(D+(1-p)*(1-q))^2/(1-q)^2-q22*((D+(1-p)*(1-q))^2-(1-p)^2)/(1-(1-q)^2)
 p22.new <- q22*((D+(1-p)*(1-q))^2-(1-q)^2-(1-p)^2+1)/(1-(1-q)^2) -q21*((D+(1-p)*(1-q))^2-(1-q)^2)/(1-q)^2
-matrix(c(p11,p12,p21,p22,p11.new,p12.new,p21.new,p22.new),nc=4,byr=T)
-apply(matrix(c(p11,p12,p21,p22),nc=2,byr=T),1,sum)
-apply(matrix(c(q11,q12,q21,q22),nc=2,byr=T),1,sum)
+matrix(c(p11,p12,p21,p22,p11.new,p12.new,p21.new,p22.new),ncol=4,byrow=T)
+apply(matrix(c(p11,p12,p21,p22),ncol=2,byrow=T),1,sum)
+apply(matrix(c(q11,q12,q21,q22),ncol=2,byrow=T),1,sum)
 }
 } 
 
@@ -1388,9 +1388,9 @@ p11.new <- q11*((D+p*q)^2-q^2-p^2+1)/(1-q^2)-q12*((D+p*q)^2-q^2)/q^2
 p12.new <- q12*(D+p*q)^2/q^2-q11*((D+p*q)^2-p^2)/(1-q^2)
 p21.new <- q21*((D+p*q)^2-q^2-p^2+1)/(1-q^2)-q22*((D+p*q)^2-q^2)/q^2
 p22.new <- q22*(D+p*q)^2/q^2-q21*((D+p*q)^2-p^2)/(1-q^2)
-matrix(c(p11,p12,p21,p22,p11.new,p12.new,p21.new,p22.new),nc=4,byr=T)
-apply(matrix(c(p11,p12,p21,p22),nc=2,byr=T),1,sum)
-apply(matrix(c(q11,q12,q21,q22),nc=2,byr=T),1,sum)
+matrix(c(p11,p12,p21,p22,p11.new,p12.new,p21.new,p22.new),ncol=4,byrow=T)
+apply(matrix(c(p11,p12,p21,p22),ncol=2,byrow=T),1,sum)
+apply(matrix(c(q11,q12,q21,q22),ncol=2,byrow=T),1,sum)
 }
 }
 

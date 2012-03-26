@@ -1,4 +1,4 @@
-## AssocBFDesign R package for design of experiments for association studies
+## ldDesign R package for design of experiments for association studies
 ## for detection of linkage disequilibrium
 #
 # Copyright (C) 2003 Roderick D. Ball
@@ -100,7 +100,7 @@ f2.0 <- f2
 
 #browser()
 
-f2.1 <- f1*matrix(rep(c(q^2,2*q*(1-q),(1-q)^2),3),nc=3,byrow=TRUE)
+f2.1 <- f1*matrix(rep(c(q^2,2*q*(1-q),(1-q)^2),3),ncol=3,byrow=TRUE)
 
 f2 <- (1-missclass.rate)*f2.0 + missclass.rate*f2.1
   
@@ -192,7 +192,7 @@ f2  <- matrix(
       c(p^2*Q^2,2*p^2*Q*(1-Q), p^2*(1-Q)^2,
         2*p*(1-p)*Q*R, 2*p*(1-p)*(Q+R - 2*Q*R),2*p*(1-p)*(1-Q)*(1-R),
         (1-p)^2*R^2,2*(1-p)^2*R*(1-R),(1-p)^2*(1-R)^2),
-           nr=3,nc=3,byrow=TRUE)
+           nrow=3,ncol=3,byrow=TRUE)
 
 
 # beta[i] is the 'between marker genotype effects' for the ith marker genotype
@@ -201,7 +201,7 @@ beta <- c(2*D*(p*d - (D - p + 2*p*q)*h)/p^2,
        -2*D*((1 - p)*d + (D + (1-p)*(1-2*q))*h)/(1-p)^2 )
 # omega[i,j] is the effect of the jth QTL genotype within the ith marker
 # genotype.
-omega <- matrix(NA,nr=3,nc=3)
+omega <- matrix(NA,nrow=3,ncol=3)
 omega[1,1] <- 2*(D - p*(1-q))*((D+p*q)*h -p*d)/p^2
 omega[1,2] <-  -p*(2*D - p*(1 - 2*q))*d + (2*D^2 - 2*p*(1 - 2*q)*D +
              (1 - 2*q +2*q^2)*p^2)*h
@@ -466,7 +466,7 @@ res2$replicate <- (repl2-1)*max(repl1) + repl1
 #browser()              
 res2
 }else{
-  matrix(aperm(array(sapply(res,c),dim=c(sim.chunk,4,ncalls)),c(1,3,2)),nc=4)
+  matrix(aperm(array(sapply(res,c),dim=c(sim.chunk,4,ncalls)),c(1,3,2)),ncol=4)
 }
 }
 
@@ -504,16 +504,16 @@ mval2 <- rbinom(n,size=1,prob=p)
 # n1 missclassified values sampled at random
 r1 <- rbinom(n1*nreps,size=1,prob=q)
 r2 <- rbinom(n1*nreps,size=1,prob=q)
-qval11.M <- matrix(rbinom(n0*nreps,size=1,prob=Q),nc=nreps)
-qval12.M <- matrix(rbinom(n0*nreps,size=1,prob=R),nc=nreps)
-qval21.M <- matrix(rbinom(n0*nreps,size=1,prob=Q),nc=nreps)
-qval22.M <- matrix(rbinom(n0*nreps,size=1,prob=R),nc=nreps)
+qval11.M <- matrix(rbinom(n0*nreps,size=1,prob=Q),ncol=nreps)
+qval12.M <- matrix(rbinom(n0*nreps,size=1,prob=R),ncol=nreps)
+qval21.M <- matrix(rbinom(n0*nreps,size=1,prob=Q),ncol=nreps)
+qval22.M <- matrix(rbinom(n0*nreps,size=1,prob=R),ncol=nreps)
 qval1 <- ifelse(rep(mval1[1:n0]==1,nreps),qval11.M,qval12.M)
 qval2 <- ifelse(rep(mval2[1:n0]==1,nreps),qval21.M,qval22.M)
 
 #browser()
-yq0 <- matrix(ifelse(qval1==1,ifelse(qval2==1,d,h),ifelse(qval2==1,h,-d)),nc=nreps)
-yq1 <- matrix(ifelse(r1==1,ifelse(r2==1,d,h),ifelse(r2==1,h,-d)),nc=nreps)
+yq0 <- matrix(ifelse(qval1==1,ifelse(qval2==1,d,h),ifelse(qval2==1,h,-d)),ncol=nreps)
+yq1 <- matrix(ifelse(r1==1,ifelse(r2==1,d,h),ifelse(r2==1,h,-d)),ncol=nreps)
 yq <- rbind(yq0,yq1)
 
 MM <- factor(ifelse(mval1==1,ifelse(mval2==1,"MM","Mm"),ifelse(mval2==1,
@@ -526,26 +526,26 @@ if(method==2){
 # method 2: simulate markers and QTL directly from table of joint probs (f <- ij)
 f2 <- matrix(c(p^2*Q^2, 2*p^2*Q*(1-Q), p^2*(1-Q)^2,
      2*p*(1-p)*Q*R, 2*p*(1-p)*(Q+R-2*Q*R), 2*p*(1-p)*(1-Q)*(1-R),
-     (1-p)^2*R^2, 2*(1-p)^2*R*(1-R), (1-p)^2*(1-R)^2), nc=3,byrow=TRUE)
+     (1-p)^2*R^2, 2*(1-p)^2*R*(1-R), (1-p)^2*(1-R)^2), ncol=3,byrow=TRUE)
 
 f2.0 <- f2
 f1.q <- c(q^2,2*q*(1-q),(1-q)^2)
-f2.1 <- matrix(rep(f1.q,3),nc=3,byrow=TRUE)
+f2.1 <- matrix(rep(f1.q,3),ncol=3,byrow=TRUE)
 
 #browser()
 mq0 <- sample(1:9,size=n0*nreps,replace=TRUE, prob=c(f2))
 mq1 <- sample(1:9,size=n1*nreps,replace=TRUE, prob=c(f2.1))
-mq <- rbind(matrix(mq0,nc=nreps),matrix(mq1,nc=nreps))
+mq <- rbind(matrix(mq0,ncol=nreps),matrix(mq1,ncol=nreps))
 
 yq <- c(d,h,-d)[col(f2)[mq]]
-yq <- matrix(yq,nc=nreps)
+yq <- matrix(yq,ncol=nreps)
 MM <- factor(c("MM","Mm","mm")[row(f2)[mq]])
 } # end method 2
 
 #browser()
 mu <- 0
 err <- rnorm(n*nreps)*sqrt(sig2.error)
-err <- matrix(err,nc=nreps)
+err <- matrix(err,ncol=nreps)
 
 y <- mu + yq + err
 
@@ -563,7 +563,7 @@ res
      P.value=sapply(summ1,function(u)u$"Pr(>F)"[1]))
  res
  }else{ # marker values different -> sep anova
-  res <- matrix(nr=nreps,nc=4)
+  res <- matrix(nrow=nreps,ncol=4)
   repl <- col(y)
   for(ii in 1:nrow(res)){
     fit1 <- aov(y[,ii] ~ MM[repl==ii])
